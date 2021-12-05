@@ -1,47 +1,51 @@
-print("Задача 77")
-w=input("введите имя первого человека: ")
-y=input("введите имя второго человека: ")
-t=input("введите имя третьего человека: ")
-rty=[w,y,t]
-print(rty)
-while True:
-    word=input("Хотите позвать еще одного человека?")
-    if word=="yes":
-        o=input("Введите имя человека, которого хотите позвать: ")
-        rty.append(o)
-    if word=="no":
-        break;
-print(rty)
-while True:
-    word1=input("Введите имя человека из списка")
-    k=(rty.index(word1))
-    print(k+1)
-    message=input("Хотите ли вы, чтобы этот человек присутствовал на вечеринке")
-    if message=="no":
-        rty.pop(k)
-        break;
-print(rty)
+from random import randint
 
-print("Задача 78")
-tv=["Major","Gdechtokogda","Pogoda","News"]
-for i in tv:
-    print(i)
-fy=input("Введите название еще одной программы")
-gy=int(input("введите позицию этой программы в списке"))
-tv.insert(gy-1,fy)
-for i in tv:
-    print(i)
+class buyer:
+    def __init__(self, surname, name, secsurname, adress, numbercred, numberbank):
+        self.__surname=surname
+        self.__name = name
+        self.__secsurname = secsurname
+        self.__adress = adress
+        self.__numbercred = numbercred
+        self.__numberbank = numberbank
 
-print("Задача 79")
-nums=[]
-o=0
-while True:
-    o+=1
-    u=int(input("Введите число"))
-    nums.append(u)
-    if o==3:
-        question=input("Хотите ли вы оставить последнее введенное число в списке?")
-        if question=="no":
-            nums.pop(2)
-            break;
-print(nums)
+    def update(self, p):
+        s = input('Напишите, что хотите поменять в данных')
+        if s == 'Фамилия' or 'фамилия':
+            self.__surname=input("Введите фамилию")
+        elif s == 'Имя' or 'имя':
+            self.__name=input("Введите имя")
+        elif s == 'Отчество' or 'отчество':
+            self.__secsurname=input("Введите отчество")
+        elif s == 'Адрес' or 'адрес':
+            self.__adress=input("Введите адрес")
+        elif s == 'Номер банковской карты' or 'номер банковской карты':
+            self.__numbercred=input("Введите номер банковской карты")
+        elif s == 'Банковский счет' or 'банковский счет':
+            self.__numberbank=input("Введите банковский счет")
+    def get(self):
+        s=input("Что вы хотите вернуть")
+        if s == 'Фамилия' or 'фамилия':
+            return self.__surname
+        elif s == 'Имя' or 'имя':
+            return self.__name
+        elif s == 'Отчество' or 'отчество':
+            return self.__secsurname
+        elif s == 'Адрес' or 'адрес':
+            return self.__adress
+        elif s == 'Номер банковской карты' or 'номер банковской карты':
+            return self.__numbercred
+        elif s == 'Банковский счет' or 'банковский счет':
+            return self.__numberbank
+    def info(self):
+        print("Имя: "+self.__name+" Фамилия: "+self.__surname+" Отчество: "+self.__secsurname+" Адрес: "+self.__adress+" Номер банковской карты: "+self.__numbercred+" Банковский счет: "+self.__numberbank)
+
+someCustomer = buyer(name='', surname='', secsurname='', adress='', numbercred='', numberbank='')
+someCustomer.update(someCustomer)
+someCustomer.update(someCustomer)
+someCustomer.update(someCustomer)
+someCustomer.update(someCustomer)
+someCustomer.update(someCustomer)
+someCustomer.update(someCustomer)
+someCustomer.get(someCustomer)
+someCustomer.info(someCustomer)
